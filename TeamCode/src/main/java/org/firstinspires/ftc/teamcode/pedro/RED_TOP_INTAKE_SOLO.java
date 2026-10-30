@@ -22,9 +22,9 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
     private final Pose start = poseFactory.of(56, 8, 90);
-    private final Pose path1 = poseFactory.of(56, 23, 90);
-    private final Pose point2 = poseFactory.of(27.5009, 7.2292, -151.0408);
-    private final Pose point3 = poseFactory.of(9.9151, 6.4774, -177.5518);
+    private final Pose path1 = poseFactory.of(56, 12, 90);
+    private final Pose point2 = poseFactory.of(28.75, 16.75, 180);
+    private final Pose point3 = poseFactory.of(9.9151, 12, 180);
     private final Pose point4 = poseFactory.of(56, 116, -94.3272);
     private final Pose point4Control1 = poseFactory.of(80.7726, 12.6434, 0);
     private final Pose point4Control2 = poseFactory.of(52.5953, 75.3387, 0);
@@ -43,11 +43,11 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     }
 
     public Path path2() {
-        return line(path1, point2).tangent();
+        return line(path1, point2).linear(path1, point2);
     }
 
     public Path path3() {
-        return line(point2, point3).tangent();
+        return line(point2, point3).linear(point2, point3);
     }
 
     public Path path4() {
