@@ -28,7 +28,6 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     private final Pose point4 = poseFactory.of(56, 116, -94.3272);
     private final Pose point4Control1 = poseFactory.of(80.7726, 12.6434, 0);
     private final Pose point4Control2 = poseFactory.of(52.5953, 75.3387, 0);
-
     private Command autoRoutine(){
         return sequential(
                 follow(follower, path1()),
