@@ -23,15 +23,16 @@ public class testauto extends OpMode {
     private final Pose start1 = poseFactory.of(53.5, 10, 90);
     private final Pose path1 = poseFactory.of(15, 10, 180);
     private final Pose path1Control1 = poseFactory.of(46.75, 34.75, 0);
-    private final Pose path2 = poseFactory.of(59, 113, 270);
-    private final Pose path2Control1 = poseFactory.of(29, 142, 0);
+    private final Pose path2 = poseFactory.of(14, 47, 180);
+    private final Pose path3 = poseFactory.of(59, 113, 270);
+    private final Pose path3Control1 = poseFactory.of(29, 142, 0);
 
 
     public Path curve1() {
         return Paths.curve(start1, path1Control1, path1).linear(start1, path1);
     }
     public Path curve2() {
-        return Paths.curve(path1, path2Control1, path2).linear(path1, path2);
+        return Paths.curve(path1, path3Control1, path2).linear(path1, path2);
     }
 
     private Command autoRoutine(){
