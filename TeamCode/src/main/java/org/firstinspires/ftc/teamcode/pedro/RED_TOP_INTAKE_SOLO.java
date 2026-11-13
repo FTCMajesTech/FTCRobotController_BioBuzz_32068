@@ -31,7 +31,7 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     private final Pose point2Control1 = poseFactory.of(46.75, 34.75, 0);
     private final Pose path3Start = poseFactory.of(56.046, 17.9656, 270);
     private final Pose path3 = poseFactory.of(58.75, 124.75, 270);
-    private final Pose path3Control1 = poseFactory.of(62.1192, 41.4802, 0);
+    private final Pose path3Control1 = poseFactory.of(66, 43, 0);
     private final Pose point4Start = poseFactory.of(58.75, 124.75, 270);
     private final Pose point4 = poseFactory.of(46.7791, 124.75, 90);
     private final Pose point5Start = poseFactory.of(46.7791, 124.75, 90);
@@ -42,7 +42,8 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     private final Pose point7 = poseFactory.of(53.5, 10, 90);
     private final Pose point7Control1 = poseFactory.of(14.8758, 48.727, 0);
     private final Pose point8Start = poseFactory.of(53.5, 10, 90);
-    private final Pose point8 = poseFactory.of(11, 107, 90);
+    private final Pose point8 = poseFactory.of(18, 107, 90);
+    private final Pose point8Control1 = poseFactory.of(18, 43, 0);
 
     // PATHS
 
@@ -75,8 +76,37 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     }
 
     public Path path8() {
-        return Paths.line(point8Start, point8).linear(point8Start, point8);
+        return Paths.curve(point8Start,point8Control1 ,point8).linear(point8Start, point8);
     }
+
+    Command shooter = Command.build()
+            .setStart(() -> {
+                shotTimer.reset();
+                shooter.setVelocity(2800);
+            })
+            .setExecute(() -> {
+                if (shooter.getVelocity() >= 2700) {
+                    transfer.setPower(0.8);
+                } else {
+                    transfer.setPower(0.0);
+                }
+
+    })
+            .setDone(() -> {
+                return shotTimer.seconds() >= 0.75;
+
+    })
+            .setEnd(endCondition -> {
+                
+
+    })
+            .requiring(/* requirements */)
+    .setInterruptedBehavior(/* interrupted behavior */)
+    .setBlockedBehavior(/* blocked behavior */)
+    .setConflictBehavior(/* conflict behavior */)
+    .setPriority();
+
+
 
     private Command autoRoutine(){
         return sequential(
