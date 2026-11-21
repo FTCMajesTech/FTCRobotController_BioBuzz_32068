@@ -17,9 +17,9 @@ import org.firstinspires.ftc.teamcode.pedro.Constants;
 public class FCD extends OpMode {
     private Follower follower;
 
-    double maxSpeed = 0.5;
-    private DcMotor intake, shooter;
-    private Servo transfer;
+    double maxSpeed = 1.0;
+    public DcMotor intake, shooter;
+    public Servo transfer;
 
     //IMU for field-centric driving
     private IMU imu;
@@ -91,17 +91,17 @@ public class FCD extends OpMode {
 
         if (gamepad1.yWasPressed()) {
             DrivePowers powers = ManualDrive.fieldCentric(
-                    -gamepad1.left_stick_x,
-                    -gamepad1.left_stick_y,
-                    -gamepad1.right_stick_x,
+                    gamepad1.left_stick_x,
+                    gamepad1.left_stick_y,
+                    gamepad1.right_stick_x,
                     follower.pose().heading()
             );
             ManualDrive.driveOrHold(follower, powers);
             follower.update();
         } else {
-            double forward = -gamepad1.left_stick_y * maxSpeed;
-            double lateral = -gamepad1.left_stick_x * maxSpeed;
-            double turn = -gamepad1.right_stick_x * maxSpeed;
+            double forward = gamepad1.left_stick_y * maxSpeed;
+            double lateral = gamepad1.left_stick_x * maxSpeed;
+            double turn = gamepad1.right_stick_x * maxSpeed;
 
             follower.manual(forward, lateral, turn);
             follower.update();

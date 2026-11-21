@@ -79,14 +79,14 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
         return Paths.curve(point8Start,point8Control1 ,point8).linear(point8Start, point8);
     }
 
-    Command shooter = Command.build()
+   /* Command shooter = Command.build()
             .setStart(() -> {
                 shotTimer.reset();
                 shooter.setVelocity(2800);
             })
             .setExecute(() -> {
                 if (shooter.getVelocity() >= 2700) {
-                    transfer.setPower(0.8);
+                    transfer.setPosition(0.8);
                 } else {
                     transfer.setPower(0.0);
                 }
@@ -99,12 +99,9 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
             .setEnd(endCondition -> {
                 
 
-    })
-            .requiring(/* requirements */)
-    .setInterruptedBehavior(/* interrupted behavior */)
-    .setBlockedBehavior(/* blocked behavior */)
-    .setConflictBehavior(/* conflict behavior */)
-    .setPriority();
+    })  */
+
+
 
 
 
