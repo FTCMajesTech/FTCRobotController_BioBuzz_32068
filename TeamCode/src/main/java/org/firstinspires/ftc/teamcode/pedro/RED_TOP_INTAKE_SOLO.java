@@ -71,13 +71,15 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
         return Paths.line(point6Start, point6).linear(point6Start, point6);
     }
 
-    public Path path7() {
+   /*  public Path path7() {
         return Paths.curve(point7Start, point7Control1, point7).linear(point7Start, point7);
     }
 
     public Path path8() {
         return Paths.curve(point8Start,point8Control1 ,point8).linear(point8Start, point8);
     }
+
+    */
 
    /* Command shooter = Command.build()
             .setStart(() -> {
@@ -112,9 +114,9 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
                 follow(follower, path3()),
                 follow(follower, path4()),
                 follow(follower, path5()),
-                follow(follower, path6()),
-                follow(follower, path7()),
-                follow(follower, path8()));
+                follow(follower, path6()));
+                //follow(follower, path7()),
+                //follow(follower, path8()));
 
     }
 
