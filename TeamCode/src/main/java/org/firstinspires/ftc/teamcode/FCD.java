@@ -79,34 +79,17 @@ public class FCD extends OpMode {
         double turn = -gamepad1.right_stick_x;
 
         follower.manual(forward, lateral, turn);
-        follower.update();*/
+        follower.update(); */
 
-       /* DrivePowers powers = ManualDrive.fieldCentric(
-                -gamepad1.left_stick_x,
-                -gamepad1.left_stick_y,
-                -gamepad1.right_stick_x,
+        DrivePowers powers = ManualDrive.fieldCentric(
+                gamepad1.left_stick_x * maxSpeed,
+                -gamepad1.left_stick_y * maxSpeed,
+                -gamepad1.right_stick_x * maxSpeed,
                 follower.pose().heading()
         );
         ManualDrive.driveOrHold(follower, powers);
-        follower.update();*/
+        follower.update();
 
-        if (gamepad1.yWasPressed()) {
-            DrivePowers powers = ManualDrive.fieldCentric(
-                    gamepad1.left_stick_x,
-                    gamepad1.left_stick_y,
-                    gamepad1.right_stick_x,
-                    follower.pose().heading()
-            );
-            ManualDrive.driveOrHold(follower, powers);
-            follower.update();
-        } else {
-            double forward = -gamepad1.left_stick_y * maxSpeed;
-            double lateral = -gamepad1.left_stick_x * maxSpeed;
-            double turn = -gamepad1.right_stick_x * maxSpeed;
-
-            follower.manual(forward, lateral, turn);
-            follower.update();
-        }
 
 
 

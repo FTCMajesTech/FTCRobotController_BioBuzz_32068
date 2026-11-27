@@ -15,8 +15,8 @@ import static com.pedropathing.ivy.Scheduler.schedule;
 import static com.pedropathing.ivy.groups.Groups.sequential;
 import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
-@Autonomous(name="RED_TOP_INTAKE_SOLO", group="Robot")
-public class RED_TOP_INTAKE_SOLO extends OpMode {
+@Autonomous(name="RED_TOP_SOLO", group="Robot")
+public class RED_TOP_SOLO extends OpMode {
     private Follower follower;
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
@@ -131,7 +131,8 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
                         follow(follower, toCorner()),
                         follow(follower, toHome()),
                         waitMs(3000),   // wait for shooting
-                        follow(follower, toLeftWall()))
+                        follow(follower, toLeftWall())
+                )
         );
     }
 
