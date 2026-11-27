@@ -18,8 +18,9 @@ public class FCD extends OpMode {
     private Follower follower;
 
     double maxSpeed = 1.0;
-    public DcMotor intake, shooter;
-    public Servo transfer;
+
+    //public DcMotor intake, shooter;
+    //public Servo transfer;
 
     //IMU for field-centric driving
     private IMU imu;
@@ -33,17 +34,17 @@ public class FCD extends OpMode {
 
         //initialize hardware motors and servos
 
-        intake = hardwareMap.get(DcMotor.class, "intake");
-        shooter = hardwareMap.get(DcMotor.class, "shooter");
-        transfer = hardwareMap.get(Servo.class, "transfer");
+        //intake = hardwareMap.get(DcMotor.class, "intake");
+        //shooter = hardwareMap.get(DcMotor.class, "shooter");
+        //ransfer = hardwareMap.get(Servo.class, "transfer");
 
         //set motor directions
 
-        transfer.setPosition(1);
+        /*transfer.setPosition(1);
         intake.setDirection(FORWARD);
         intake.setPower(0);
         shooter.setDirection(FORWARD);
-        shooter.setPower(0);
+        shooter.setPower(0); */
 
 
 
@@ -99,9 +100,9 @@ public class FCD extends OpMode {
             ManualDrive.driveOrHold(follower, powers);
             follower.update();
         } else {
-            double forward = gamepad1.left_stick_y * maxSpeed;
-            double lateral = gamepad1.left_stick_x * maxSpeed;
-            double turn = gamepad1.right_stick_x * maxSpeed;
+            double forward = -gamepad1.left_stick_y * maxSpeed;
+            double lateral = -gamepad1.left_stick_x * maxSpeed;
+            double turn = -gamepad1.right_stick_x * maxSpeed;
 
             follower.manual(forward, lateral, turn);
             follower.update();
@@ -109,26 +110,26 @@ public class FCD extends OpMode {
 
 
 
-        if (gamepad1.a) {
+      /*  if (gamepad1.a) {
             intake.setPower(1.0);
         } else {
             intake.setPower(0.0);
-        }
+        } */
 
-       if (gamepad1.x) {
+      /* if (gamepad1.x) {
             shooter.setPower(0.7);
         } else {
             shooter.setPower(0.0);
-        }
+        } */
 
-       if (gamepad1.b) {
+      /* if (gamepad1.b) {
            transfer.setPosition(0.9);
        } else {
            transfer.setPosition(1);
-       }
+       } */
 
 
-        telemetry.addData("Shooter Power", shooter.getPower());
+        //telemetry.addData("Shooter Power", shooter.getPower());
         telemetry.addData("B Button Pressed", gamepad1.b);
         telemetry.update();
     }

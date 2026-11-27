@@ -22,10 +22,10 @@ public class Constants {
         c.frontRightName.set("FRdrive");
         c.backLeftName.set("BLdrive");
         c.backRightName.set("BRdrive");
-        c.frontLeftDirection.set(DcMotorSimple.Direction.FORWARD);
-        c.frontRightDirection.set(DcMotorSimple.Direction.REVERSE);
-        c.backLeftDirection.set(DcMotorSimple.Direction.FORWARD);
-        c.backRightDirection.set(DcMotorSimple.Direction.REVERSE);
+        c.frontLeftDirection.set(DcMotorSimple.Direction.REVERSE);
+        c.frontRightDirection.set(DcMotorSimple.Direction.FORWARD);
+        c.backLeftDirection.set(DcMotorSimple.Direction.REVERSE);
+        c.backRightDirection.set(DcMotorSimple.Direction.FORWARD);
     });
 
     public static PinpointConfig localizerConfig = new PinpointConfig(c -> {
@@ -33,8 +33,8 @@ public class Constants {
         c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
         c.xPodOffset.set(3.8582677165);
         c.yPodOffset.set(-5.688976378);
-        c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.REVERSED);
-        c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.REVERSED);
+        c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+        c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
         c.globalDistanceUnit.set(DistanceUnit.INCH);
         c.offsetUnits.set(DistanceUnit.INCH);
     });
