@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.pedro;
+package org.firstinspires.ftc.teamcode;
 
 import com.pedropathing.api.Paths;
 import com.pedropathing.follower.Follower;
@@ -14,6 +14,8 @@ import com.pedropathing.ivy.Scheduler;
 import static com.pedropathing.ivy.Scheduler.schedule;
 import static com.pedropathing.ivy.groups.Groups.sequential;
 import static com.pedropathing.ivy.pedro.PedroCommands.follow;
+
+import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 @Autonomous(name="RED_TOP_HALF", group="Robot")
 public class RED_TOP_HALF extends OpMode {

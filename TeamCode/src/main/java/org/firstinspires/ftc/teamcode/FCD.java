@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import static com.qualcomm.robotcore.hardware.DcMotorSimple.Direction.FORWARD;
 
 import com.pedropathing.follower.Follower;
+import com.pedropathing.math.Pose;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -89,31 +90,30 @@ public class FCD extends OpMode {
         );
         ManualDrive.driveOrHold(follower, powers);
         follower.update();
+        Pose robotPose = follower.pose();
 
+        // Telemetry Data of robot position and heading
+        telemetry.addData("Robot X", robotPose.x());
+        telemetry.addData("Robot Y", robotPose.y());
+        telemetry.addData("Robot Heading", Math.toDegrees(robotPose.heading()));
 
-
-
-      /*  if (gamepad1.a) {
+        /*if (gamepad1.a) {
             intake.setPower(1.0);
         } else {
             intake.setPower(0.0);
         } */
 
-      /* if (gamepad1.x) {
+        /*if (gamepad1.x) {
             shooter.setPower(0.7);
         } else {
             shooter.setPower(0.0);
         } */
 
-      /* if (gamepad1.b) {
+       /*if (gamepad1.b) {
            transfer.setPosition(0.9);
        } else {
            transfer.setPosition(1);
        } */
 
-
-        //telemetry.addData("Shooter Power", shooter.getPower());
-        telemetry.addData("B Button Pressed", gamepad1.b);
-        telemetry.update();
     }
 }
