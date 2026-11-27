@@ -22,7 +22,7 @@ public class FCD extends OpMode {
     //public DcMotor intake, shooter;
     //public Servo transfer;
 
-    //IMU for field-centric driving hello
+    //IMU for field-centric driving
     private IMU imu;
 
 
@@ -133,6 +133,4 @@ public class FCD extends OpMode {
         telemetry.addData("B Button Pressed", gamepad1.b);
         telemetry.update();
     }
-
-
 }
