@@ -129,6 +129,20 @@ public class RED_TOP_INTAKE_SOLO extends OpMode {
     @Override
     public void start() {
         schedule(autoRoutine());
+        schedule(
+                sequential(
+                        follow(follower, toGarden()),
+                        follow(follower, toLaunch()),
+                        waitMs(3000),   // wait for the shooting
+                        follow(follower, toFarWall()),
+                        //follow(follower, sweep()),
+                        follow(follower, sweepBack()),
+                        waitMs(3000),   // wait for shooting
+                        follow(follower, toCorner()),
+                        follow(follower, toHome()),
+                        waitMs(3000),   // wait for shooting
+                        follow(follower, toLeftWall()))
+        );
     }
 
     @Override
